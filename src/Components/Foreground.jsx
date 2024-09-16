@@ -11,6 +11,17 @@ const data = [
         tag:{
             isOpen: true,
             tagtitle: 'Download Now', 
+            tagColor: 'red'
+        }
+
+    },
+    {
+        desc: 'This is the content of the card to be displayed inside the card',
+        filesize: '.9mb', 
+        close: true,
+        tag:{
+            isOpen: true,
+            tagtitle: 'Download Now', 
             tagColor: 'green'
         }
 
@@ -42,7 +53,7 @@ const data = [
     return (
     <div ref={ref} className='fixed top-0 left-0 h-full w-full z-[3] flex gap-10 flex-wrap p-5'>
         {data.map((item, index)=>(
-            <Card dataForCard={item} refrence={ref} />
+            <Card key={index} dataForCard={item} refrence={ref} />
         ))}
     </div>
   )

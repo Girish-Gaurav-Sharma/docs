@@ -5,6 +5,13 @@ import { IoIosClose } from "react-icons/io";
 import { motion } from "framer-motion"
 
 function Card({dataForCard , refrence}) {
+  const colorClasses = {
+    zinc: 'bg-zinc-600',
+    green: 'bg-green-600',
+    blue: 'bg-blue-600',
+    red: 'bg-red-600'
+  };
+  const color = colorClasses[dataForCard.tag.tagColor] || 'bg-gray-600';
   return (
     <motion.div drag dragConstraints={refrence} whileDrag={{scale: 1.2}} dragElastic={0.2} 
     dragTransition={{ bounceStiffness: 100, bounceDamping: 30 }} className='relative shrink-0 px-8 py-10 leading-tight w-52 h-64 rounded-[45px] bg-zinc-900/90 text-white overflow-hidden'>
@@ -19,7 +26,7 @@ function Card({dataForCard , refrence}) {
             </div>
             {
                 dataForCard.tag.isOpen &&(
-            <div className={`tag w-full py-4 bg-${dataForCard.tag.tagColor}-600 flex items-center justify-center`}>
+            <div className={`tag w-full py-4 ${color} flex items-center justify-center`}>
                 <h3 className='text-sm font-semibold'>{dataForCard.tag.tagtitle}</h3>
             </div>
 
